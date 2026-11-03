@@ -1,17 +1,18 @@
+
 :root {
-  color-scheme: dark;
-  --background: #0f172a;
-  --surface: #1e293b;
-  --text: #f8fafc;
-  --muted: #cbd5e1;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --error: #ef4444;
-  --border: #334155;
+    color-scheme: dark;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text: #f8fafc;
+    --muted: #cbd5e1;
+    --accent: #2563eb;
+    --accent-hover: #587de2;
+    --error: #ef4444;
+    --border: #334155;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -20,8 +21,8 @@ body {
     padding-bottom: 2rem;
     background: radial-gradient(
         circle at top,
-        #1e293b 0%,
-        #0f172a 55%,
+        var(--surface) 0%,
+        var(--background) 55%,
         #080e1c 100%
     );
     background-attachment: fixed;
@@ -29,16 +30,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Encabezado */
+
 header {
     padding: 4rem 1rem;
     text-align: center;
     background: linear-gradient(
         135deg,
-        #1e293b,
-        #0f172a,
+        var(--surface),
+        var(--background),
         #172554
     );
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    border-bottom: 1px solid var(--border);
 }
 
 header h1 {
@@ -53,13 +56,16 @@ header p {
     font-size: 1.1rem;
     letter-spacing: 0.5px;
 }
+
+/* Contenido y tarjetas */
+
 main.container {
     max-width: 1050px;
 }
 
 .card {
-    background: rgba(30, 41, 59, 0.85) !important;
-    border: 1px solid rgba(148, 163, 184, 0.15) !important;
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -75,6 +81,7 @@ main.container {
 }
 
 h2 {
+    color: var(--text);
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 1.5rem;
@@ -84,13 +91,27 @@ h2 i {
     margin-right: 8px;
 }
 
+/* Imagen del día */
+
 #imagen-nasa {
+    display: block;
     max-width: 100%;
     max-height: 550px;
+    margin: 0 auto;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
+
+#imagen-nasa:hover {
+    transform: scale(1.01);
+}
+
+#fecha-imagen {
+    color: var(--muted);
+    text-align: center;
+}
+
 #explicacion-imagen {
     color: var(--muted);
     font-size: 1rem;
@@ -99,18 +120,20 @@ h2 i {
     text-align: justify;
 }
 
+/* Campos de formulario */
+
 .form-control {
     min-height: 45px;
-    background-color: #0f172a;
-    border: 1px solid #475569;
-    color: white;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    color: var(--text);
     border-radius: 8px;
 }
 
 .form-control:focus {
-    background-color: #0f172a;
-    color: white;
-    border-color: #60a5fa;
+    background-color: var(--background);
+    color: var(--text);
+    border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
@@ -124,31 +147,64 @@ h2 i {
 }
 
 .btn-primary {
-    background: #2563eb;
-    border-color: #28427c;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text);
 }
 
 .btn-primary:hover {
-    background: #364879;
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--text);
     transform: translateY(-2px);
 }
 
-/*Favoritos*/
+/* Botón de favoritos */
+
+.btn-favorito {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    margin-top: 20px;
+    background-color: var(--accent);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-favorito:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--text);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.btn-favorito i {
+    font-size: 1.1rem;
+}
+
+/* Favoritos */
 
 #listado-favoritas li {
     padding: 1rem;
     background: transparent;
-    color: #cbd5e1;
-    border-color: rgba(148, 163, 184, 0.2);
+    color: var(--muted);
+    border-color: var(--border);
     transition: all 0.3s ease;
 }
 
 #listado-favoritas li:hover {
-    background: rgba(37, 99, 235, 0.12);
-    color: #93c5fd;
+    background: rgba(88, 125, 226, 0.15);
+    color: var(--text);
     padding-left: 1.4rem;
 }
 
+/* Mensajes */
 
 #mensaje_de_error {
     color: var(--error);
@@ -169,5 +225,3 @@ h2 i {
         text-align: left;
     }
 }
-
-
