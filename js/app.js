@@ -64,10 +64,10 @@ document.getElementById("btn-favorito").addEventListener("click", () => {
 mostrarFavoritos();
 
 /* ===================== Fin código de Jesu ==================== */
+
 const inputFecha = document.getElementById("fecha");
 const botonFormulario = document.getElementById("buscar");
 const imagen = document.getElementById("imagen-nasa");
-const fecha = document.getElementById("fecha-imagen");
 const descripcion = document.getElementById("explicacion-imagen");
 
 dayjs.locale("es");
@@ -88,16 +88,8 @@ async function buscarFoto(fechaConFormato) {
     }
 }
 
-//Recibe la fecha y se le da formato.
-function formatearFecha(fecha) {
-    let fechaConFormato = dayjs(fecha).format("YYMMDD");
-    buscarFoto(fechaConFormato);
-}
 
-botonFormulario.addEventListener("click", function (event) {
-    event.preventDefault();
-    formatearFecha(inputFecha.value);
-});
+
 /*Sección Natalia Buscador */
 
 //Activar el idioma español para Dayjs
