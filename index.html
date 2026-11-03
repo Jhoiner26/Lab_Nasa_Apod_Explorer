@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,14 +27,19 @@
 
             <button id="btn-favorito" type="button"> Favorito </button>
         </section>
+        <!--Buscador por fecha-->
         <section>
             <h2> Buscar imagen por fecha</h2>
-            <form id="formulario-busqueda">
-                <label for="fecha">Selecciona una fecha: </label>
-                <input type="text" id="fecha" min="1995-06-16" required>
+            <div class="row mb-4">
+                <div class="col-md-8 mx-auto">
+                    <!--16 de junio de 1995 PRIMERA PUBLICACIÓN DE LA NASA EN LA API-->
+                    <input type="date" name="Fecha" id="input_fecha" class="form-control" min="1995-06-16">
+                    <button id="btn_buscar" class="btn btn-primary">Buscar</button>
+                </div>
 
-                <button type="submit">Buscar</button>
-            </form>
+                <!--Alertas de errores-->
+                <div id="mensaje_de_error" class="text-danger mt-2"></div>
+            </div>
         </section>
         <section>
             <h2>Imagenes favoritas</h2>
