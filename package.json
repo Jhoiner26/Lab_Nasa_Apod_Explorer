@@ -3,7 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "dayjs": "^1.11.23",
-    "prompt-sync": "^4.2.0"
-  }
+    "dayjs": "^1.11.23"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jhoiner26/Lab_Nasa_Apod_Explorer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Jhoiner26/Lab_Nasa_Apod_Explorer/issues"
+  },
+  "homepage": "https://github.com/Jhoiner26/Lab_Nasa_Apod_Explorer#readme"
 }
