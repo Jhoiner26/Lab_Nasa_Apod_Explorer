@@ -93,11 +93,10 @@ function formatearFecha(fecha) {
     let fechaConFormato = dayjs(fecha).format("YYMMDD");
     buscarFoto(fechaConFormato);
 }
+formatearFecha(dayjs())
 
-botonFormulario.addEventListener("click", function (event) {
-    event.preventDefault();
-    formatearFecha(inputFecha.value);
-});
+
+
 /*Sección Natalia Buscador */
 
 //Activar el idioma español para Dayjs
@@ -107,18 +106,18 @@ dayjs.locale("es");
 //console.log(dayjs().format("D [de] MMMM [de] YYYY"));
 
 //Capturar los datos de html con el id
-const fecha = document.getElementById("input_fecha");
+const fechabtn = document.getElementById("input_fecha");
 const guardar_Busquedabtn = document.getElementById("btn_buscar");
 const mensaje = document.getElementById("mensaje_de_error");
 
 //Fecha maxima permitida (Hoy)
 const fechaHoy = dayjs().format("YYYY-MM-DD");
 console.log("Fecha Hoy Validar" + fechaHoy);
-fecha.setAttribute("max", fechaHoy);
+fechabtn.setAttribute("max", fechaHoy);
 
 //Activar el boton
 guardar_Busquedabtn.addEventListener("click", () => {
-    const fechaSeleccion = fecha.value;
+    const fechaSeleccion = fechabtn.value;
 
     //Limpiar contenedor en caso de que hayan errores antes de validad
     mensaje.textContent = "";
@@ -146,10 +145,6 @@ guardar_Busquedabtn.addEventListener("click", () => {
         return;
     }
 
-    // Si pasa todas las validaciones, transformar el formato para la API (AAAA-MM-DD a AAMMDD)
-    const fechaFormateadaApi = dayjs(fechaSeleccion).format("YYMMDD");
-
-// Llamamos a la función encargada de consultar la API con la fecha construida
-  buscarFoto(fechaFormateadaApi);
+    formatearFecha(fechaSeleccion);
 });
 
